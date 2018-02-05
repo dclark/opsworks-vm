@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
 # set the agent version to be installed
-AGENT_VERSION="33300020141216163306"
+AGENT_VERSION="3446-20171214053739"
 
 echo "==> Generating chef json for first OpsWorks run"
 TMPDIR=$(mktemp -d) && trap 'rm -rf "$TMPDIR"' EXIT
@@ -24,7 +24,6 @@ cat <<EOT > $TMPDIR/dna.json
       "recipe[ssh_host_keys]",
       "recipe[ssh_users]",
       "recipe[dependencies]",
-      "recipe[apt]",
       "recipe[deploy::default]",
       "recipe[agent_version]",
       "recipe[opsworks_stack_state_sync]",
@@ -34,37 +33,8 @@ cat <<EOT > $TMPDIR/dna.json
 }
 EOT
 
-# Use Berkshelf to pre-load some commonly-used community cookbooks
 cat <<EOT >> $TMPDIR/cookbooks/Berksfile
-source "https://supermarket.getchef.com"
 
-# pre-load some opscode community cookbooks
-cookbook "apt", ">= 2.0"
-cookbook "apache2"
-cookbook "aws"
-cookbook "bluepill"
-cookbook "build-essential"
-cookbook "couchdb"
-cookbook "cron"
-cookbook "git"
-cookbook "haproxy"
-cookbook "memcached"
-cookbook "mongodb"
-cookbook "mysql"
-cookbook "newrelic"
-cookbook "nginx"
-cookbook "nodejs"
-cookbook "ohai"
-cookbook "postgresql"
-cookbook "php"
-cookbook "php-fpm"
-cookbook "python"
-cookbook "redisio"
-cookbook "rsyslog"
-cookbook "runit"
-cookbook "sysctl"
-cookbook "yum"
-cookbook "yum-epel"
 EOT
 
 echo "==> Installing and running OpsWorks agent"

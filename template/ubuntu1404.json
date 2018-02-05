@@ -7,10 +7,10 @@
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "iso_urls": [
-        "http://releases.ubuntu.com/14.04/ubuntu-14.04.1-server-amd64.iso",
-        "http://nl.releases.ubuntu.com/14.04/ubuntu-14.04.1-server-amd64.iso"
+        "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso",
+        "http://nl.releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso"
       ],
-      "iso_checksum": "401c5f6666fe2879ac3a9a3247b487723410cf88",
+      "iso_checksum": "5e567024c385cc8f90c83d6763c6e4f1cd5deb6f",
       "iso_checksum_type": "sha1",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
@@ -36,8 +36,8 @@
       "type": "vmware-iso",
       "guest_os_type": "ubuntu-64",
       "iso_urls": [
-        "http://releases.ubuntu.com/14.04/ubuntu-14.04.1-server-amd64.iso",
-        "http://nl.releases.ubuntu.com/14.04/ubuntu-14.04.1-server-amd64.iso"
+        "http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso",
+        "http://nl.releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso"
       ],
       "iso_checksum": "401c5f6666fe2879ac3a9a3247b487723410cf88",
       "iso_checksum_type": "sha1",
@@ -93,7 +93,7 @@
   "post-processors": [
     {
       "type": "vagrant",
-      "output": "build/ubuntu1404-opsworks-{{.Provider}}.box",
+      "output": "build/ubuntu14045-opsworks-{{.Provider}}.box",
       "include": [
         "opsworks/opsworks",
         "opsworks/opsworks.rb",
